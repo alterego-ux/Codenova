@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10162b">
+  <meta name="description" content="CodeNova: productos tecnológicos, desarrollo de software, IoT, robótica, soporte y soluciones digitales en Colombia.">
+  <meta property="og:title" content="CodeNova | Tecnología que impulsa tus proyectos">
+  <meta property="og:description" content="Explora soluciones tecnológicas, hardware, desarrollo y servicios para tus ideas.">
+  <meta property="og:type" content="website">
+  <title>CodeNova | Tecnología que impulsa tus proyectos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f5f7fc;--surface:#fff;--surface-2:#edf1f8;--ink:#11182b;--muted:#66718a;
+      --line:rgba(25,39,70,.11);--navy:#10162b;--navy-2:#182341;--purple:#7457f5;--purple-2:#9b87ff;
+      --cyan:#22c9c2;--green:#12a98a;--shadow:0 18px 50px rgba(20,31,62,.10);--shadow-sm:0 8px 24px rgba(20,31,62,.08);
+      --radius:24px;--radius-sm:16px;--max:1220px;--header:80px;
+    }
+    [data-theme="dark"]{
+      --bg:#090e1b;--surface:#111a2c;--surface-2:#18243a;--ink:#eff3ff;--muted:#a2aec7;
+      --line:rgba(220,230,255,.12);--navy:#070c18;--navy-2:#101a31;--shadow:0 18px 50px rgba(0,0,0,.28);--shadow-sm:0 8px 24px rgba(0,0,0,.22);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:110px}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;line-height:1.65;overflow-x:hidden;transition:background .25s,color .25s}
+    body.lock{overflow:hidden}
+    h1,h2,h3,h4,p{margin-top:0}
+    h1,h2,h3,h4,.brand,.eyebrow,.price,.metric{font-family:'Space Grotesk',sans-serif}
+    a{color:inherit;text-decoration:none}
+    button,input,select,textarea{font:inherit}
+    button{cursor:pointer}
+    img{display:block;max-width:100%}
+    .container{width:min(var(--max),calc(100% - 44px));margin-inline:auto}
+    .section{padding:104px 0;position:relative}
+    .section-head{max-width:730px;margin-bottom:38px}
+    .section-head.center{text-align:center;margin-inline:auto}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;font-weight:700;color:var(--purple);margin-bottom:15px}
+    .eyebrow:before{content:"";width:23px;height:2px;background:linear-gradient(90deg,var(--purple),var(--cyan));border-radius:9px}
+    .section-title{font-size:clamp(2rem,4.1vw,3.25rem);letter-spacing:-.055em;line-height:1.07;margin-bottom:15px}
+    .section-copy{font-size:1.04rem;color:var(--muted);max-width:65ch;margin-bottom:0}
+    .gradient-text{background:linear-gradient(105deg,#9b87ff 5%,#54d9d2 95%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .btn{border:0;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 21px;border-radius:999px;font-weight:700;font-size:.92rem;transition:transform .22s,box-shadow .22s,background .22s;color:#fff;background:linear-gradient(105deg,var(--purple),#5b88ef);box-shadow:0 10px 24px rgba(116,87,245,.22)}
+    .btn:hover{transform:translateY(-3px);box-shadow:0 15px 30px rgba(116,87,245,.3)}
+    .btn:active{transform:translateY(-1px)}
+    .btn-outline{background:transparent;color:var(--ink);border:1px solid var(--line);box-shadow:none}
+    .btn-outline:hover{background:var(--surface);box-shadow:var(--shadow-sm)}
+    .btn-dark{background:var(--navy);color:#fff;box-shadow:none}
+    .btn-small{padding:10px 15px;font-size:.82rem}
+    .icon-btn{width:43px;height:43px;display:grid;place-items:center;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:50%;transition:.2s;position:relative}
+    .icon-btn:hover{transform:translateY(-2px);border-color:var(--purple);color:var(--purple)}
+    .icon-btn svg,.btn svg{width:18px;height:18px;flex:none}
+    .announcement{background:#0c1327;color:#dae2fb;font-size:.77rem;letter-spacing:.025em}
+    .announcement .container{min-height:35px;display:flex;align-items:center;justify-content:center;gap:10px;text-align:center}
+    .announcement b{color:#7fe9df}
+    header{height:var(--header);position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 87%,transparent);backdrop-filter:blur(18px);border-bottom:1px solid var(--line);transition:box-shadow .2s}
+    header.scrolled{box-shadow:0 8px 24px rgba(13,23,48,.06)}
+    .nav{height:100%;display:flex;align-items:center;gap:26px}
+    .brand{display:flex;align-items:center;gap:11px;font-size:1.27rem;font-weight:700;letter-spacing:-.055em;white-space:nowrap}
+    .brand-mark{width:39px;height:39px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(140deg,#8a70ff,#22c9c2);box-shadow:0 8px 18px rgba(116,87,245,.24);color:#fff}
+    .brand-mark svg{width:24px;height:24px}
+    .brand small{display:block;color:var(--muted);font:600 .58rem 'DM Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;margin-top:-3px}
+    .nav-links{display:flex;align-items:center;gap:23px;margin-left:auto}
+    .nav-links a{font-size:.83rem;font-weight:600;color:var(--muted);transition:color .2s;white-space:nowrap}
+    .nav-links a:hover{color:var(--purple)}
+    .nav-actions{display:flex;align-items:center;gap:9px}
+    .cart-count{position:absolute;right:-4px;top:-5px;min-width:19px;height:19px;padding:0 5px;display:grid;place-items:center;border-radius:99px;background:var(--cyan);color:#0b1726;font-size:.66rem;font-weight:800;border:2px solid var(--bg)}
+    .menu-toggle{display:none}
+
+    /* Hero */
+    .hero{padding:58px 0 72px;position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(180deg,var(--bg),var(--bg))}
+    .hero:before{content:"";position:absolute;width:660px;height:660px;border-radius:50%;background:radial-gradient(circle,rgba(116,87,245,.14),transparent 68%);top:-290px;right:-120px;z-index:-1}
+    .hero:after{content:"";position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(34,201,194,.10),transparent 70%);bottom:-330px;left:-140px;z-index:-1}
+    .hero-grid{display:grid;grid-template-columns:1.04fr .96fr;align-items:center;gap:52px;min-height:540px}
+    .hero-kicker{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:99px;padding:8px 13px;background:var(--surface);color:var(--muted);font-size:.76rem;font-weight:700;box-shadow:var(--shadow-sm)}
+    .live-dot{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 5px rgba(34,201,194,.12)}
+    .hero h1{font-size:clamp(3rem,6vw,5.3rem);line-height:.99;letter-spacing:-.075em;margin:24px 0 22px;max-width:720px}
+    .hero-copy{font-size:1.12rem;color:var(--muted);max-width:560px;margin-bottom:29px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+    .hero-note{display:flex;align-items:center;gap:10px;margin-top:29px;color:var(--muted);font-size:.8rem}
+    .note-icons{display:flex;align-items:center}
+    .note-icons span{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--surface-2);border:2px solid var(--bg);margin-left:-6px;color:var(--purple);font-size:.7rem}
+    .note-icons span:first-child{margin-left:0}
+    .hero-visual{position:relative;min-height:500px;display:grid;place-items:center}
+    .hero-image-wrap{position:relative;width:min(100%,530px);height:470px;border-radius:34px;overflow:hidden;box-shadow:0 30px 70px rgba(19,27,53,.24);transform:rotate(1.4deg);border:7px solid var(--surface)}
+    .hero-image-wrap:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,14,30,.02) 35%,rgba(8,14,30,.8))}
+    .hero-image-wrap img{width:100%;height:100%;object-fit:cover}
+    .hero-image-caption{position:absolute;z-index:2;bottom:24px;left:27px;right:27px;color:#fff}
+    .hero-image-caption span{font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:#a7f0e8;font-weight:700}
+    .hero-image-caption h3{font-size:1.65rem;line-height:1.1;margin:8px 0 0;max-width:350px}
+    .float-card{position:absolute;z-index:3;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px 17px;box-shadow:var(--shadow);display:flex;align-items:center;gap:12px;animation:float 5s ease-in-out infinite}
+    .float-card.one{top:53px;left:-18px}.float-card.two{right:-20px;bottom:67px;animation-delay:-2s}
+    .float-icon{width:39px;height:39px;border-radius:12px;display:grid;place-items:center;background:rgba(116,87,245,.12);color:var(--purple)}
+    .float-icon.cyan{background:rgba(34,201,194,.13);color:#079c96}
+    .float-icon svg{width:21px;height:21px}
+    .float-card b{display:block;font-size:.83rem}.float-card small{display:block;color:var(--muted);font-size:.7rem}
+    @keyframes float{50%{transform:translateY(-9px)}}
+
+    .trust-strip{border-block:1px solid var(--line);background:var(--surface)}
+    .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);padding:22px 0;gap:20px}
+    .trust-item{display:flex;align-items:center;justify-content:center;gap:11px;color:var(--muted);font-size:.82rem;font-weight:600}
+    .trust-item svg{width:21px;height:21px;color:var(--purple)}
+
+    /* About */
+    .about-grid{display:grid;grid-template-columns:.98fr 1.02fr;gap:72px;align-items:center}
+    .about-gallery{position:relative;min-height:490px}
+    .about-main{position:absolute;width:78%;height:390px;left:0;top:0;border-radius:26px;overflow:hidden;box-shadow:var(--shadow)}
+    .about-main img,.about-small img{width:100%;height:100%;object-fit:cover}
+    .about-small{position:absolute;right:0;bottom:0;width:48%;height:235px;border:8px solid var(--bg);border-radius:25px;overflow:hidden;box-shadow:var(--shadow)}
+    .about-tag{position:absolute;left:18px;bottom:35px;background:var(--surface);padding:15px 18px;border-radius:17px;box-shadow:var(--shadow);max-width:205px}
+    .about-tag strong{display:block;font:700 1.55rem 'Space Grotesk';letter-spacing:-.06em;color:var(--purple)}
+    .about-tag span{font-size:.75rem;color:var(--muted)}
+    .value-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:27px}
+    .value-item{display:flex;gap:11px;align-items:flex-start;padding:13px;border-radius:15px;background:var(--surface);border:1px solid var(--line)}
+    .value-item svg{width:21px;height:21px;color:var(--purple);flex:none;margin-top:2px}
+    .value-item b{display:block;font-size:.84rem}.value-item small{display:block;color:var(--muted);font-size:.72rem;line-height:1.45;margin-top:3px}
+
+    /* feature band */
+    .feature-band{padding:72px 0;background:var(--navy);color:#fff;position:relative;overflow:hidden}
+    .feature-band:before{content:"";position:absolute;width:460px;height:460px;border-radius:50%;border:1px solid rgba(255,255,255,.08);right:-100px;top:-210px;box-shadow:0 0 0 45px rgba(255,255,255,.025),0 0 0 90px rgba(255,255,255,.02)}
+    .feature-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:50px;align-items:center;position:relative}
+    .feature-band .eyebrow{color:#8de8e0}.feature-band h2{font-size:clamp(2rem,4vw,3.2rem);line-height:1.08;letter-spacing:-.06em;margin-bottom:16px}
+    .feature-band p{color:#abb7d2;max-width:510px;margin-bottom:0}
+    .feature-points{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+    .feature-point{padding:19px;border:1px solid rgba(255,255,255,.12);border-radius:17px;background:rgba(255,255,255,.045);backdrop-filter:blur(8px)}
+    .feature-point svg{width:23px;height:23px;color:#68e2d8;margin-bottom:12px}
+    .feature-point b{display:block;font-size:.91rem}.feature-point span{display:block;color:#aab6d0;font-size:.76rem;margin-top:4px;line-height:1.5}
+
+    /* Catalog */
+    .catalog-section{background:var(--surface-2)}
+    .catalog-top{display:flex;align-items:flex-end;justify-content:space-between;gap:22px;margin-bottom:28px}
+    .catalog-tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .searchbox{position:relative;min-width:250px}
+    .searchbox svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--muted)}
+    .searchbox input{padding-left:42px}
+    .field,.searchbox input,.catalog-tools select,.contact-form input,.contact-form select,.contact-form textarea,.checkout-form input,.checkout-form select{width:100%;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:13px;padding:12px 14px;outline:none;transition:border .2s,box-shadow .2s}
+    .field:focus,.searchbox input:focus,.catalog-tools select:focus,.contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus,.checkout-form input:focus,.checkout-form select:focus{border-color:var(--purple);box-shadow:0 0 0 3px rgba(116,87,245,.12)}
+    .filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:23px}
+    .filter-btn{border:1px solid var(--line);background:var(--surface);padding:9px 15px;border-radius:99px;color:var(--muted);font-size:.8rem;font-weight:700;transition:.2s}
+    .filter-btn:hover,.filter-btn.active{background:var(--navy);border-color:var(--navy);color:#fff}
+    .product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .product-card{background:var(--surface);border:1px solid var(--line);border-radius:21px;padding:11px;display:flex;flex-direction:column;min-width:0;box-shadow:0 5px 18px rgba(20,31,62,.035);transition:transform .25s,box-shadow .25s,border-color .25s}
+    .product-card:hover{transform:translateY(-7px);box-shadow:var(--shadow);border-color:rgba(116,87,245,.32)}
+    .product-image{height:184px;border-radius:15px;overflow:hidden;position:relative;background:var(--surface-2)}
+    .product-image img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+    .product-card:hover .product-image img{transform:scale(1.07)}
+    .product-label{position:absolute;top:11px;left:11px;background:rgba(12,19,39,.78);backdrop-filter:blur(8px);color:#fff;padding:6px 9px;border-radius:99px;font-size:.65rem;font-weight:700}
+    .product-content{padding:15px 7px 7px;display:flex;flex-direction:column;flex:1}
+    .product-category{font-size:.67rem;text-transform:uppercase;letter-spacing:.12em;color:var(--purple);font-weight:800;margin-bottom:7px}
+    .product-title{font-size:1.04rem;letter-spacing:-.035em;line-height:1.2;margin-bottom:8px}
+    .product-desc{color:var(--muted);font-size:.79rem;line-height:1.55;margin-bottom:12px;min-height:49px}
+    .product-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:9px;border-top:1px solid var(--line)}
+    .price{font-size:1.17rem;font-weight:700;letter-spacing:-.05em;white-space:nowrap}
+    .price-note{font-size:.65rem;color:var(--muted);display:block;font-family:'DM Sans';font-weight:500;letter-spacing:0}
+    .product-actions{display:flex;gap:7px;align-items:center}
+    .add-btn{width:39px;height:39px;border:0;border-radius:12px;background:var(--navy);color:#fff;display:grid;place-items:center;transition:.2s}
+    .add-btn:hover{background:var(--purple);transform:translateY(-2px)}
+    .add-btn svg{width:18px;height:18px}
+    .details-btn{border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:12px;padding:9px 10px;font-size:.72rem;font-weight:700;transition:.2s}
+    .details-btn:hover{border-color:var(--purple);color:var(--purple)}
+    .empty-state{grid-column:1/-1;text-align:center;background:var(--surface);border:1px dashed var(--line);padding:50px 20px;border-radius:20px;color:var(--muted)}
+    .catalog-disclaimer{margin-top:22px;font-size:.76rem;color:var(--muted);display:flex;gap:8px;align-items:flex-start}
+    .catalog-disclaimer svg{width:17px;height:17px;color:var(--purple);flex:none;margin-top:2px}
+
+    /* services */
+    .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}
+    .service-card{position:relative;min-height:270px;overflow:hidden;border-radius:21px;background:#101a32;color:#fff;isolation:isolate;box-shadow:var(--shadow-sm)}
+    .service-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .65s}
+    .service-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,13,28,.04),rgba(7,13,28,.92));z-index:-1}
+    .service-card:hover img{transform:scale(1.08)}
+    .service-content{position:absolute;inset:auto 19px 19px}
+    .service-content span{font-size:.68rem;color:#85ece3;text-transform:uppercase;letter-spacing:.14em;font-weight:800}
+    .service-content h3{font-size:1.22rem;letter-spacing:-.04em;margin:7px 0 5px}
+    .service-content p{font-size:.77rem;color:#d1d8e9;margin:0;line-height:1.5}
+
+    /* process */
+    .process-section{background:var(--surface-2)}
+    .steps-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;position:relative}
+    .steps-grid:before{content:"";position:absolute;top:30px;left:9%;right:9%;height:1px;background:linear-gradient(90deg,var(--purple),var(--cyan));opacity:.35}
+    .step{text-align:center;position:relative;z-index:1;padding:0 9px}
+    .step-icon{width:62px;height:62px;border-radius:20px;display:grid;place-items:center;margin:0 auto 17px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow-sm);color:var(--purple)}
+    .step-icon svg{width:26px;height:26px}
+    .step-number{font-size:.67rem;font-weight:800;letter-spacing:.12em;color:var(--cyan);text-transform:uppercase}
+    .step h3{font-size:1rem;margin:5px 0 7px}.step p{font-size:.77rem;color:var(--muted);line-height:1.5;margin:0}
+
+    /* support */
+    .support-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .support-card{background:var(--surface);padding:25px 21px;border:1px solid var(--line);border-radius:19px;box-shadow:var(--shadow-sm);transition:transform .2s}
+    .support-card:hover{transform:translateY(-5px)}
+    .support-icon{width:45px;height:45px;border-radius:14px;background:rgba(116,87,245,.12);color:var(--purple);display:grid;place-items:center;margin-bottom:16px}
+    .support-icon svg{width:23px;height:23px}
+    .support-card h3{font-size:1.03rem;margin-bottom:8px}.support-card p{color:var(--muted);font-size:.8rem;line-height:1.6;margin:0}
+    .support-card a{display:inline-flex;margin-top:14px;font-size:.76rem;color:var(--purple);font-weight:800}
+
+    /* legal */
+    .legal-section{background:var(--navy);color:#fff;overflow:hidden}
+    .legal-section:before{content:"";position:absolute;left:-200px;top:100px;width:500px;height:500px;border-radius:50%;border:1px solid rgba(255,255,255,.07);box-shadow:0 0 0 55px rgba(255,255,255,.018),0 0 0 110px rgba(255,255,255,.014)}
+    .legal-section .eyebrow{color:#83e9df}.legal-section .section-copy{color:#aebbd4}
+    .legal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px;position:relative}
+    .legal-card{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:24px;backdrop-filter:blur(8px);transition:background .2s,transform .2s}
+    .legal-card:hover{background:rgba(255,255,255,.09);transform:translateY(-4px)}
+    .legal-card .law-no{font:700 1.5rem 'Space Grotesk';letter-spacing:-.06em;color:#8e83ff}
+    .legal-card h3{font-size:1.05rem;margin:9px 0 8px}.legal-card p{font-size:.79rem;color:#aebbd4;line-height:1.6;margin-bottom:14px}
+    .legal-card a{font-size:.75rem;color:#85e8df;font-weight:800;display:inline-flex;gap:7px;align-items:center}
+    .legal-card a svg{width:14px;height:14px}
+    .legal-note{position:relative;margin-top:22px;background:rgba(34,201,194,.08);border:1px solid rgba(34,201,194,.22);padding:17px 19px;border-radius:16px;color:#c5d5e9;font-size:.78rem}
+    .legal-note b{color:#8fece4}
+
+    /* ethics */
+    .ethics-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
+    .ethics-photo{height:460px;border-radius:27px;overflow:hidden;position:relative;box-shadow:var(--shadow)}
+    .ethics-photo img{width:100%;height:100%;object-fit:cover}
+    .ethics-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(9,15,31,.65))}
+    .ethics-quote{position:absolute;left:25px;right:25px;bottom:24px;color:white;z-index:1;font:600 1.26rem/1.3 'Space Grotesk';letter-spacing:-.03em}
+    .ethics-list{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:25px}
+    .ethic{display:flex;gap:10px;align-items:flex-start;padding:14px;border-radius:15px;border:1px solid var(--line);background:var(--surface)}
+    .ethic svg{width:20px;height:20px;color:var(--green);flex:none;margin-top:2px}
+    .ethic b{font-size:.82rem;display:block}.ethic small{font-size:.71rem;color:var(--muted);display:block;line-height:1.45;margin-top:3px}
+
+    /* FAQ/contact/footer */
+    .faq-layout{display:grid;grid-template-columns:.75fr 1.25fr;gap:65px;align-items:start}
+    .faq-list details{background:var(--surface);border:1px solid var(--line);border-radius:15px;padding:17px 19px;margin-bottom:10px;box-shadow:0 4px 15px rgba(20,31,62,.025)}
+    .faq-list summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;font-weight:700;font-size:.9rem}
+    .faq-list summary::-webkit-details-marker{display:none}
+    .faq-list summary:after{content:"+";font-size:1.25rem;line-height:1;color:var(--purple);font-weight:500}
+    .faq-list details[open] summary:after{content:"−"}
+    .faq-list details p{color:var(--muted);font-size:.82rem;margin:12px 24px 0 0;line-height:1.6}
+    .contact-section{background:var(--surface-2)}
+    .contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:55px;align-items:start}
+    .contact-info{background:var(--navy);color:white;border-radius:24px;padding:30px;position:relative;overflow:hidden;min-height:430px}
+    .contact-info:after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;border:1px solid rgba(255,255,255,.12);right:-110px;bottom:-100px;box-shadow:0 0 0 35px rgba(255,255,255,.025),0 0 0 70px rgba(255,255,255,.02)}
+    .contact-info h3{font-size:1.7rem;letter-spacing:-.05em;line-height:1.1;margin-bottom:12px}.contact-info>p{color:#aab7d2;font-size:.86rem;max-width:320px}
+    .contact-line{display:flex;gap:12px;align-items:center;margin-top:24px;position:relative;z-index:1}
+    .contact-line span:first-child{width:39px;height:39px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.1);color:#8be9e1}
+    .contact-line svg{width:19px;height:19px}.contact-line b{display:block;font-size:.81rem}.contact-line small{display:block;font-size:.71rem;color:#aab7d2}
+    .contact-form{background:var(--surface);border:1px solid var(--line);padding:28px;border-radius:24px;box-shadow:var(--shadow-sm)}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .form-field{display:grid;gap:6px;margin-bottom:14px}.form-field.full{grid-column:1/-1}
+    .form-field label{font-size:.76rem;font-weight:800;color:var(--ink)}
+    .form-field textarea{resize:vertical;min-height:120px}
+    .check-row{display:flex;align-items:flex-start;gap:9px;font-size:.73rem;color:var(--muted);margin:8px 0 16px}
+    .check-row input{margin-top:4px;accent-color:var(--purple);flex:none}
+    .form-message{font-size:.77rem;min-height:20px;color:var(--purple);margin:9px 0 0}
+    footer{background:#080e1d;color:#fff;padding:58px 0 24px}
+    .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:38px;padding-bottom:42px}
+    footer .brand{color:#fff;margin-bottom:16px}footer .brand small{color:#93a0bd}
+    .footer-about{font-size:.79rem;color:#9ba8c4;max-width:300px}
+    .footer-col h4{font-size:.84rem;margin:6px 0 16px;color:#fff}
+    .footer-col a{display:block;font-size:.76rem;color:#9ba8c4;margin:9px 0;transition:color .2s}
+    .footer-col a:hover{color:#82e8e0}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:19px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:#8190af;font-size:.7rem}
+    .demo-disclaimer{color:#8fa0c1}
+    .back-top{position:fixed;right:22px;bottom:22px;z-index:25;width:46px;height:46px;border:0;border-radius:50%;display:grid;place-items:center;background:var(--purple);color:white;box-shadow:0 9px 24px rgba(116,87,245,.34);opacity:0;visibility:hidden;transform:translateY(10px);transition:.25s}
+    .back-top.show{opacity:1;visibility:visible;transform:none}.back-top svg{width:20px;height:20px}
+
+    /* overlays and drawers */
+    .overlay{position:fixed;inset:0;background:rgba(5,10,24,.62);backdrop-filter:blur(4px);z-index:70;opacity:0;visibility:hidden;transition:.25s}
+    .overlay.open{opacity:1;visibility:visible}
+    .drawer{position:fixed;z-index:80;top:0;right:0;height:100dvh;width:min(470px,100%);background:var(--bg);border-left:1px solid var(--line);box-shadow:-20px 0 60px rgba(0,0,0,.18);transform:translateX(105%);transition:transform .35s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;padding:24px}
+    .drawer.open{transform:none}
+    .drawer-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:17px;border-bottom:1px solid var(--line)}
+    .drawer-head h2{font-size:1.4rem;letter-spacing:-.05em;margin:0}
+    .drawer-items{overflow:auto;flex:1;padding:10px 0}
+    .cart-empty{text-align:center;color:var(--muted);padding:48px 15px}.cart-empty svg{width:45px;height:45px;color:var(--purple);margin:0 auto 12px}
+    .cart-row{display:grid;grid-template-columns:68px 1fr auto;gap:12px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}
+    .cart-row img{width:68px;height:68px;object-fit:cover;border-radius:13px}
+    .cart-row h4{font-size:.82rem;margin:0 0 3px}.cart-row small{color:var(--muted);font-size:.73rem}
+    .qty{display:flex;align-items:center;gap:7px;margin-top:7px}.qty button{width:25px;height:25px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);font-weight:700}
+    .qty span{font-size:.75rem;font-weight:800;min-width:12px;text-align:center}
+    .remove-item{border:0;background:transparent;color:#c35e72;padding:5px;font-size:.72rem}
+    .cart-summary{border-top:1px solid var(--line);padding-top:15px}
+    .summary-line{display:flex;justify-content:space-between;gap:15px;color:var(--muted);font-size:.8rem;margin:7px 0}
+    .summary-line.total{font-size:1.08rem;font-weight:800;color:var(--ink);border-top:1px dashed var(--line);padding-top:12px;margin-top:12px}
+    .summary-note{font-size:.68rem;color:var(--muted);line-height:1.45;margin:10px 0 14px}
+    .drawer .btn{width:100%}
+    .modal-wrap{position:fixed;inset:0;z-index:90;padding:20px;display:grid;place-items:center;opacity:0;visibility:hidden;transition:.22s;overflow:auto}
+    .modal-wrap.open{opacity:1;visibility:visible}
+    .modal{background:var(--bg);border:1px solid var(--line);border-radius:25px;width:min(760px,100%);max-height:min(90dvh,900px);overflow:auto;box-shadow:0 30px 90px rgba(0,0,0,.3);transform:translateY(12px) scale(.98);transition:.22s}
+    .modal-wrap.open .modal{transform:none}
+    .modal-head{display:flex;justify-content:space-between;align-items:center;padding:20px 23px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:2}
+    .modal-head h2{font-size:1.2rem;margin:0;letter-spacing:-.04em}
+    .modal-body{padding:23px}
+    .product-modal-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:25px}
+    .product-modal-grid>img{width:100%;height:320px;object-fit:cover;border-radius:17px}
+    .product-modal-grid h3{font-size:1.7rem;line-height:1.05;letter-spacing:-.06em;margin:6px 0 12px}
+    .product-modal-grid p{color:var(--muted);font-size:.86rem}
+    .spec-list{padding-left:19px;color:var(--muted);font-size:.82rem;margin:15px 0 20px}.spec-list li{margin:7px 0}
+    .checkout-form .form-grid{margin-bottom:5px}.checkout-summary{background:var(--surface-2);padding:15px;border-radius:14px;font-size:.8rem;margin-bottom:17px}
+    .checkout-summary div{display:flex;justify-content:space-between;gap:15px;margin:5px 0}
+    .checkout-warning{font-size:.73rem;color:var(--muted);line-height:1.55;background:rgba(34,201,194,.08);border:1px solid rgba(34,201,194,.2);padding:12px;border-radius:12px;margin-bottom:16px}
+    .success-panel{text-align:center;padding:25px 10px}.success-icon{width:66px;height:66px;border-radius:50%;margin:0 auto 16px;display:grid;place-items:center;background:rgba(18,169,138,.13);color:var(--green)}.success-icon svg{width:31px;height:31px}.success-panel h3{font-size:1.7rem;letter-spacing:-.05em}.success-panel p{color:var(--muted);font-size:.86rem;max-width:480px;margin:0 auto 20px}
+    .toast{position:fixed;left:50%;bottom:26px;z-index:120;transform:translate(-50%,20px);opacity:0;visibility:hidden;background:#121b31;color:white;padding:12px 18px;border-radius:99px;box-shadow:0 12px 35px rgba(0,0,0,.25);font-size:.8rem;font-weight:700;transition:.25s;max-width:calc(100% - 30px);text-align:center}
+    .toast.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}.reveal.visible{opacity:1;transform:none}
+    :focus-visible{outline:3px solid rgba(116,87,245,.55);outline-offset:3px}
+    @media(max-width:1080px){.nav{gap:17px}.nav-links{gap:14px}.nav-links a{font-size:.77rem}.product-grid{grid-template-columns:repeat(3,1fr)}.services-grid{grid-template-columns:repeat(2,1fr)}.support-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:820px){:root{--header:70px}.section{padding:78px 0}.menu-toggle{display:grid}.nav-links{position:absolute;top:calc(100% + 1px);left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);padding:16px 22px 22px;display:none;flex-direction:column;align-items:stretch;gap:0;box-shadow:var(--shadow)}.nav-links.open{display:flex}.nav-links a{padding:12px 4px;border-bottom:1px solid var(--line);font-size:.9rem}.nav-links a:last-child{border:0}.hero-grid,.about-grid,.feature-grid,.ethics-grid,.faq-layout,.contact-grid{grid-template-columns:1fr;gap:35px}.hero-grid{gap:15px}.hero-visual{min-height:420px}.hero-image-wrap{height:400px}.float-card.one{left:0}.float-card.two{right:0}.about-gallery{min-height:420px;max-width:600px;width:100%}.about-main{height:340px}.about-small{height:200px}.trust-grid{grid-template-columns:1fr 1fr}.feature-points{max-width:650px}.legal-grid{grid-template-columns:1fr 1fr}.steps-grid{grid-template-columns:repeat(3,1fr);row-gap:30px}.steps-grid:before{display:none}.faq-layout{gap:10px}.footer-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:600px){.container{width:min(var(--max),calc(100% - 30px))}.announcement .container{font-size:.68rem;min-height:39px}.brand{font-size:1.12rem}.brand-mark{width:36px;height:36px}.nav{gap:9px}.nav-actions{gap:6px}.icon-btn{width:39px;height:39px}.hero{padding:42px 0 50px}.hero h1{font-size:clamp(2.7rem,14vw,4.2rem)}.hero-copy{font-size:1rem}.hero-visual{min-height:350px}.hero-image-wrap{height:330px;border-width:5px}.float-card{padding:10px 12px}.float-card.one{top:22px}.float-card.two{bottom:32px}.float-icon{width:33px;height:33px}.float-card b{font-size:.73rem}.float-card small{font-size:.63rem}.trust-grid{gap:15px;padding:18px 0}.trust-item{justify-content:flex-start;font-size:.74rem}.section{padding:65px 0}.section-title{font-size:2.2rem}.about-gallery{min-height:340px}.about-main{height:280px;width:83%}.about-small{height:155px;width:48%;border-width:5px}.about-tag{left:8px;bottom:18px;padding:10px 13px}.about-tag strong{font-size:1.25rem}.about-tag span{font-size:.65rem}.value-grid{gap:8px}.value-item{padding:10px}.value-item small{font-size:.66rem}.feature-band{padding:60px 0}.feature-points{gap:8px}.feature-point{padding:14px}.feature-point b{font-size:.8rem}.feature-point span{font-size:.68rem}.catalog-top{display:block}.catalog-tools{margin-top:18px}.searchbox{min-width:100%;flex:1}.catalog-tools select{flex:1;min-width:145px}.product-grid{grid-template-columns:1fr 1fr;gap:10px}.product-card{padding:8px;border-radius:17px}.product-image{height:135px;border-radius:12px}.product-content{padding:11px 4px 4px}.product-title{font-size:.9rem}.product-desc{font-size:.72rem;min-height:62px}.price{font-size:1rem}.details-btn{padding:8px 8px;font-size:.66rem}.add-btn{width:34px;height:34px;border-radius:10px}.product-bottom{align-items:flex-end}.product-actions{gap:5px}.services-grid{grid-template-columns:1fr 1fr;gap:10px}.service-card{min-height:230px;border-radius:17px}.service-content{inset:auto 13px 14px}.service-content h3{font-size:1rem}.service-content p{font-size:.69rem}.steps-grid{grid-template-columns:1fr 1fr;gap:25px 12px}.step:last-child{grid-column:1/-1;max-width:260px;justify-self:center}.step p{font-size:.72rem}.support-grid{grid-template-columns:1fr 1fr;gap:9px}.support-card{padding:17px 14px}.support-card h3{font-size:.9rem}.support-card p{font-size:.72rem}.support-icon{width:39px;height:39px}.legal-grid{grid-template-columns:1fr}.legal-card{padding:20px}.ethics-photo{height:340px}.ethics-list{gap:8px}.ethic{padding:10px;gap:7px}.ethic b{font-size:.74rem}.ethic small{font-size:.65rem}.form-grid{grid-template-columns:1fr;gap:0}.contact-form{padding:19px}.contact-info{padding:23px;min-height:370px}.footer-grid{grid-template-columns:1fr 1fr;gap:25px 16px}.footer-grid>div:first-child{grid-column:1/-1}.footer-bottom{font-size:.66rem}.drawer{padding:17px}.cart-row{grid-template-columns:58px 1fr auto;gap:8px}.cart-row img{width:58px;height:58px}.product-modal-grid{grid-template-columns:1fr}.product-modal-grid>img{height:210px}.modal-body{padding:17px}.modal-head{padding:16px 18px}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <div class="announcement"><div class="container"><span>✦</span><span><b>CodeNova</b> · Ingeniería de Sistemas, ideas que se convierten en soluciones</span></div></div>
+  <header id="header">
+    <div class="container nav">
+      <a class="brand" href="#inicio" aria-label="CodeNova, ir al inicio">
+        <span class="brand-mark"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M20 3 35 11.5v17L20 37 5 28.5v-17L20 3Z" stroke="currentColor" stroke-width="2"/><path d="m15 14-6 6 6 6m10-12 6 6-6 6m-3-15-4 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span>CodeNova<small>Technology studio</small></span>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a><a href="#nosotros">Nosotros</a><a href="#catalogo">Catálogo</a><a href="#servicios">Servicios</a><a href="#compra">Cómo comprar</a><a href="#legal">Normatividad</a><a href="#contacto">Contacto</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Cambiar tema" title="Cambiar tema"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v2m0 14v2M3 12h2m14 0h2M5.64 5.64l1.42 1.42m9.88 9.88 1.42 1.42m0-12.72-1.42 1.42m-9.88 9.88-1.42 1.42"/><circle cx="12" cy="12" r="4"/></svg></button>
+        <button class="icon-btn" id="openCart" aria-label="Abrir carrito" title="Carrito de compras"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 4h2l2.1 10.2a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 1.9-1.4L22 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg><span class="cart-count" id="cartCount">0</span></button>
+        <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <span class="hero-kicker"><span class="live-dot"></span> Ingeniería de Sistemas · Colombia</span>
+          <h1>La tecnología que transforma tus <span class="gradient-text">ideas en soluciones.</span></h1>
+          <p class="hero-copy">Hardware, desarrollo de software y acompañamiento tecnológico para llevar tus proyectos del concepto a la realidad.</p>
+          <div class="hero-actions"><a class="btn" href="#catalogo">Explorar catálogo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a><a class="btn btn-outline" href="#servicios">Conocer servicios</a></div>
+          <div class="hero-note"><span class="note-icons"><span>⌘</span><span>⌁</span><span>⌬</span></span><span>Ideas, ingeniería y tecnología en un mismo lugar.</span></div>
+        </div>
+        <div class="hero-visual reveal">
+          <div class="float-card one"><span class="float-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4M7 9l2 2 4-4"/></svg></span><span><b>Soluciones digitales</b><small>Diseño · Desarrollo · Innovación</small></span></div>
+          <div class="hero-image-wrap"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=88" alt="Placa electrónica y componentes de un proyecto tecnológico" fetchpriority="high" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=85'"><div class="hero-image-caption"><span>Construimos el futuro</span><h3>Tu próximo proyecto empieza con una buena idea.</h3></div></div>
+          <div class="float-card two"><span class="float-icon cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 4 7v5c0 5 3.4 8 8 9 4.6-1 8-4 8-9V7l-8-4Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></span><span><b>Ingeniería responsable</b><small>Transparencia y confianza</small></span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust-strip"><div class="container trust-grid">
+      <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 4 7v5c0 5 3.4 8 8 9 4.6-1 8-4 8-9V7l-8-4Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg>Compra informada</div>
+      <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 15h4"/></svg>Precios de referencia</div>
+      <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16v13H4zM8 7V4h8v3M8 12h8m-8 4h5"/></svg>Soluciones para proyectos</div>
+      <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Acompañamiento técnico</div>
+    </div></div>
+
+    <section class="section" id="nosotros"><div class="container about-grid">
+      <div class="about-gallery reveal">
+        <div class="about-main"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1000&q=85" alt="Equipo de trabajo colaborando en computadores durante un proyecto tecnológico" loading="lazy"></div>
+        <div class="about-small"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=85" alt="Estación de trabajo con computador y código de programación" loading="lazy"></div>
+        <div class="about-tag"><strong>Tech first.</strong><span>La innovación empieza con preguntas y se construye con ingeniería.</span></div>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">Conoce CodeNova</span>
+        <h2 class="section-title">Tecnología con propósito, diseñada para <span class="gradient-text">resolver.</span></h2>
+        <p class="section-copy">CodeNova es una propuesta académica de tienda online enfocada en Ingeniería de Sistemas. Reúne productos de electrónica y robótica con servicios de desarrollo, soporte y orientación tecnológica.</p>
+        <p class="section-copy" style="margin-top:13px">Nuestro enfoque combina innovación, experiencia de usuario y responsabilidad: presentar información clara, respetar los derechos de los consumidores y promover un uso consciente de la tecnología.</p>
+        <div class="value-grid">
+          <div class="value-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z"/><path d="m19 16 .8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8L19 16Z"/></svg><span><b>Innovación</b><small>Convertimos ideas en propuestas tecnológicas.</small></span></div>
+          <div class="value-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 4 7v5c0 5 3.4 8 8 9 4.6-1 8-4 8-9V7l-8-4Z"/></svg><span><b>Responsabilidad</b><small>Actuamos con criterio y transparencia.</small></span></div>
+          <div class="value-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m4 12 5 5L20 6"/></svg><span><b>Calidad</b><small>Cuidamos cada detalle de la solución.</small></span></div>
+          <div class="value-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12s3.2-6 9-6 9 6 9 6-3.2 6-9 6-9-6-9-6Z"/><circle cx="12" cy="12" r="2.5"/></svg><span><b>Transparencia</b><small>Información clara para decidir mejor.</small></span></div>
+        </div>
+      </div>
+    </div></section>
+
+    <section class="feature-band"><div class="container feature-grid">
+      <div class="reveal"><span class="eyebrow">Un ecosistema tecnológico</span><h2>De un componente electrónico a una solución digital completa.</h2><p>Explora herramientas para aprender, prototipar, construir y mantener proyectos tecnológicos. Cada producto y servicio se presenta con características y precios de referencia.</p></div>
+      <div class="feature-points reveal">
+        <div class="feature-point"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9zM9 1v3m6-3v3M9 20v3m6-3v3M1 9h3m-3 6h3m16-6h3m-3 6h3"/></svg><b>Hardware e IoT</b><span>Componentes para experimentar con sensores, placas y automatización.</span></div>
+        <div class="feature-point"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m8 8-5 4 5 4m8-8 5 4-5 4m-2-11-4 14"/></svg><b>Desarrollo</b><span>Experiencias web y prototipos de aplicaciones adaptados a cada idea.</span></div>
+        <div class="feature-point"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 4 7v5c0 5 3.4 8 8 9 4.6-1 8-4 8-9V7l-8-4Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg><b>Seguridad</b><span>Buenas prácticas para reducir riesgos y cuidar la información.</span></div>
+        <div class="feature-point"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19h16M6 16V8m6 8V4m6 12v-5"/></svg><b>Acompañamiento</b><span>Orientación técnica para avanzar con método y criterio.</span></div>
+      </div>
+    </div></section>
+
+    <section class="section catalog-section" id="catalogo"><div class="container">
+      <div class="catalog-top"><div class="section-head" style="margin:0"><span class="eyebrow">Catálogo CodeNova</span><h2 class="section-title">Encuentra lo que tu proyecto <span class="gradient-text">necesita.</span></h2><p class="section-copy">Hardware, desarrollo y soporte en un catálogo pensado para explorar y comparar.</p></div>
+        <div class="catalog-tools"><label class="searchbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg><input id="productSearch" type="search" placeholder="Buscar producto o servicio…" aria-label="Buscar en el catálogo"></label><select id="sortProducts" aria-label="Ordenar productos"><option value="featured">Orden recomendado</option><option value="low">Menor precio</option><option value="high">Mayor precio</option><option value="az">Nombre A–Z</option></select></div>
+      </div>
+      <div class="filter-row" id="filters" aria-label="Filtrar productos"><button class="filter-btn active" data-filter="Todos">Todos</button><button class="filter-btn" data-filter="Hardware">Hardware</button><button class="filter-btn" data-filter="Desarrollo">Desarrollo</button><button class="filter-btn" data-filter="Soporte">Soporte y asesoría</button></div>
+      <div class="product-grid" id="productGrid" aria-live="polite"></div>
+      <div class="catalog-disclaimer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8h.01"/></svg><span>Los precios y especificaciones mostrados son referencias para esta demostración académica. La disponibilidad, impuestos, alcance y condiciones definitivas deben confirmarse antes de una contratación real.</span></div>
+    </div></section>
+
+    <section class="section" id="servicios"><div class="container">
+      <div class="section-head reveal"><span class="eyebrow">Lo que hacemos</span><h2 class="section-title">Servicios que conectan ideas y <span class="gradient-text">tecnología.</span></h2><p class="section-copy">Soluciones orientadas a necesidades reales de aprendizaje, emprendimiento y transformación digital.</p></div>
+      <div class="services-grid">
+        <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=85" alt="Desarrollador trabajando en un computador" loading="lazy"><div class="service-content"><span>01 / Desarrollo</span><h3>Desarrollo web</h3><p>Sitios responsivos, funcionales y pensados para las personas.</p></div></article>
+        <article class="service-card reveal"><img src="https://mettevo.com/_next/image?q=75&url=https%3A%2F%2Fstage.mettevo.com%2Fwp-content%2Fuploads%2F2025%2F03%2F2-Mobile-App-Development.webp&w=1920" alt="Diseño de interfaz de aplicación móvil sobre una mesa" loading="lazy"><div class="service-content"><span>02 / Experiencia</span><h3>Prototipos móviles</h3><p>Diseño de pantallas y flujos para validar una idea de aplicación.</p></div></article>
+        <article class="service-card reveal"><img src="https://laserwattmeter.com/newtoncreativelabs.com/images/capability-firmware.png" alt="Placa ESP32 conectada a componentes electrónicos" loading="lazy"><div class="service-content"><span>03 / IoT</span><h3>Internet de las cosas</h3><p>Prototipos con sensores, microcontroladores y conectividad.</p></div></article>
+        <article class="service-card reveal"><img src="https://www.ibm.com/content/adobe-cms/br/pt/new/announcements/drive-ai-at-scale-with-the-power-of-hybrid-it-environment-and-support/jcr%3Acontent/root/leadspace_container/leadspace_article_full_image/image.coreimg.jpeg/1774617747211/adobestock-1785913115.jpeg" alt="Pasillo de infraestructura de servidores con iluminación azul" loading="lazy"><div class="service-content"><span>04 / Seguridad</span><h3>Ciberseguridad</h3><p>Revisión inicial y recomendaciones para fortalecer sistemas.</p></div></article>
+        <article class="service-card reveal"><img src="https://www.wolfieweb.com/images/arduino_robot_car_main.webp" alt="Prototipo de vehículo robótico construido con Arduino" loading="lazy"><div class="service-content"><span>05 / Automatización</span><h3>Robótica</h3><p>Exploración de control, sensores y movimiento automatizado.</p></div></article>
+        <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=800&q=85" alt="Técnico revisando circuitos de un equipo electrónico" loading="lazy"><div class="service-content"><span>06 / Mantenimiento</span><h3>Soporte técnico</h3><p>Orientación para diagnóstico, mantenimiento y continuidad.</p></div></article>
+        <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800&q=85" alt="Equipo compartiendo ideas y revisando un proyecto" loading="lazy"><div class="service-content"><span>07 / Consultoría</span><h3>Asesoría tecnológica</h3><p>Acompañamiento para estructurar proyectos y decisiones técnicas.</p></div></article>
+        <article class="service-card reveal"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=85" alt="Persona tomando notas y trabajando en un proyecto académico" loading="lazy"><div class="service-content"><span>08 / Formación</span><h3>Proyectos académicos</h3><p>Orientación metodológica y técnica para proyectos de ingeniería.</p></div></article>
+      </div>
+    </div></section>
+
+    <section class="section process-section" id="compra"><div class="container">
+      <div class="section-head center reveal"><span class="eyebrow">Experiencia de compra</span><h2 class="section-title">Comprar en CodeNova es <span class="gradient-text">sencillo.</span></h2><p class="section-copy">Un recorrido claro para revisar tu selección y conocer las condiciones antes de confirmar.</p></div>
+      <div class="steps-grid">
+        <div class="step reveal"><div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg></div><span class="step-number">Paso 01</span><h3>Explora</h3><p>Busca productos y revisa sus características.</p></div>
+        <div class="step reveal"><div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h2l2.1 11h10.8l2-8H7"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg></div><span class="step-number">Paso 02</span><h3>Selecciona</h3><p>Agrega al carrito lo que te interesa.</p></div>
+        <div class="step reveal"><div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v14H4zM8 9h8m-8 4h5"/></svg></div><span class="step-number">Paso 03</span><h3>Revisa</h3><p>Verifica cantidades, subtotal y envío estimado.</p></div>
+        <div class="step reveal"><div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h14v16H5zM8 8h8m-8 4h8m-8 4h4"/></svg></div><span class="step-number">Paso 04</span><h3>Confirma</h3><p>Completa los datos y acepta las condiciones.</p></div>
+        <div class="step reveal"><div class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h11v11H3zM14 11h4l3 3v4h-7z"/><circle cx="7.5" cy="19" r="1.5"/><circle cx="17.5" cy="19" r="1.5"/></svg></div><span class="step-number">Paso 05</span><h3>Coordina</h3><p>Define entrega o prestación del servicio.</p></div>
+      </div>
+    </div></section>
+
+    <section class="section"><div class="container">
+      <div class="section-head reveal"><span class="eyebrow">Acompañamiento</span><h2 class="section-title">Una experiencia clara antes y <span class="gradient-text">después.</span></h2><p class="section-copy">La información logística y de servicio debe ser verificable, oportuna y fácil de consultar.</p></div>
+      <div class="support-grid">
+        <article class="support-card reveal"><span class="support-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h11v11H3zM14 11h4l3 3v4h-7z"/><circle cx="7.5" cy="19" r="1.5"/><circle cx="17.5" cy="19" r="1.5"/></svg></span><h3>Envíos y entregas</h3><p>Para productos físicos se debe informar cobertura, costo, operador y plazo estimado antes de finalizar la compra.</p><a href="#faq">Ver preguntas frecuentes →</a></article>
+        <article class="support-card reveal"><span class="support-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m4 6 8 7 8-7"/></svg></span><h3>Servicios digitales</h3><p>El alcance, entregables, cronograma y forma de prestación se acuerdan con claridad antes de iniciar.</p><a href="#servicios">Explorar servicios →</a></article>
+        <article class="support-card reveal"><span class="support-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v12H8l-4 3z"/><path d="M8 9h8m-8 4h5"/></svg></span><h3>Atención al cliente</h3><p>Las consultas, solicitudes y reclamaciones deben contar con canales de contacto visibles y un proceso de respuesta.</p><a href="#contacto">Ir a contacto →</a></article>
+        <article class="support-card reveal"><span class="support-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v14H4zM8 9h8m-8 4h5"/><path d="m15 16 2 2 4-4"/></svg></span><h3>Garantías y retracto</h3><p>Las condiciones aplicables dependen del producto, servicio y supuestos previstos en la normativa vigente.</p><a href="#legal">Consultar marco legal →</a></article>
+      </div>
+    </div></section>
+
+    <section class="section legal-section" id="legal"><div class="container">
+      <div class="section-head reveal"><span class="eyebrow">E-commerce en Colombia</span><h2 class="section-title">Comprar online también exige <span class="gradient-text">responsabilidad.</span></h2><p class="section-copy">CodeNova presenta estas normas como marco de referencia académico. Su aplicación concreta depende de las características de cada operación.</p></div>
+      <div class="legal-grid">
+        <article class="legal-card reveal"><div class="law-no">527 / 1999</div><h3>Comercio electrónico</h3><p>Regula el acceso y uso de mensajes de datos, el comercio electrónico y las firmas digitales. Proporciona bases para reconocer efectos jurídicos a la información y acuerdos electrónicos.</p><a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=4276" target="_blank" rel="noopener">Consultar texto oficial <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4h6v6m0-6-9 9"/><path d="M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6"/></svg></a></article>
+        <article class="legal-card reveal"><div class="law-no">1480 / 2011</div><h3>Estatuto del Consumidor</h3><p>Establece derechos y deberes de consumidores y proveedores. En ventas a distancia y comercio electrónico es clave ofrecer información clara, suficiente y verificable.</p><a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=44306" target="_blank" rel="noopener">Consultar texto oficial <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4h6v6m0-6-9 9"/><path d="M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6"/></svg></a></article>
+        <article class="legal-card reveal"><div class="law-no">1581 / 2012</div><h3>Protección de datos personales</h3><p>Define disposiciones generales para el tratamiento de datos personales. La autorización, finalidad, derechos del titular y deberes del responsable son aspectos esenciales.</p><a href="https://sedeelectronica.sic.gov.co/transparencia/normativa/ley-estatutaria-1581-de-2012" target="_blank" rel="noopener">Consultar en la SIC <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4h6v6m0-6-9 9"/><path d="M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6"/></svg></a></article>
+        <article class="legal-card reveal"><div class="law-no">2439 / 2024</div><h3>Protección en comercio electrónico</h3><p>Modifica la Ley 1480 de 2011 e incorpora medidas específicas para consumidores de comercio electrónico, entre ellas reglas sobre información y devolución de dinero por retracto.</p><a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=257116" target="_blank" rel="noopener">Consultar texto oficial <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4h6v6m0-6-9 9"/><path d="M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6"/></svg></a></article>
+        <article class="legal-card reveal"><div class="law-no">DIAN</div><h3>Facturación e impuestos</h3><p>La obligación de expedir factura depende de las condiciones y excepciones previstas en la regulación tributaria. No debe asumirse que todas las operaciones tienen idéntico tratamiento.</p><a href="https://www.dian.gov.co/impuestos/factura-electronica/como-hacerlo/Paginas/ser-facturador-electronico.aspx" target="_blank" rel="noopener">Consultar información DIAN <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4h6v6m0-6-9 9"/><path d="M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6"/></svg></a></article>
+        <article class="legal-card reveal"><div class="law-no">SEGURIDAD</div><h3>Protección de la información</h3><p>Como buena práctica, se deben limitar los datos recolectados, proteger accesos, utilizar conexiones seguras en producción y evitar almacenar información financiera sensible.</p><a href="https://www.sic.gov.co/tema/proteccion-de-datos-personales" target="_blank" rel="noopener">Orientación sobre datos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4h6v6m0-6-9 9"/><path d="M18 13v6a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h6"/></svg></a></article>
+      </div>
+      <div class="legal-note reveal"><b>Nota legal:</b> la Ley 2439 de 2024 modificó disposiciones del Estatuto del Consumidor aplicables al comercio electrónico. El derecho de retracto tiene supuestos y excepciones; para comercio electrónico, la ley contempla un plazo máximo de quince (15) días calendario para la devolución del dinero una vez se cumplan las condiciones legales. Este resumen no sustituye la lectura de la norma ni asesoría jurídica.</div>
+    </div></section>
+
+    <section class="section" id="etica"><div class="container ethics-grid">
+      <div class="ethics-photo reveal"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1100&q=85" alt="Equipo interdisciplinario colaborando en un proyecto" loading="lazy"><div class="ethics-quote">“La tecnología no solo debe innovar: también debe construirse con responsabilidad.”</div></div>
+      <div class="reveal"><span class="eyebrow">Ética profesional</span><h2 class="section-title">La confianza también se <span class="gradient-text">diseña.</span></h2><p class="section-copy">En CodeNova entendemos que una solución tecnológica debe aportar valor sin perder de vista a las personas. Por eso, la calidad técnica debe ir acompañada de decisiones éticas.</p>
+        <div class="ethics-list">
+          <div class="ethic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg><span><b>Transparencia</b><small>Precios, alcances y condiciones visibles.</small></span></div>
+          <div class="ethic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg><span><b>Privacidad</b><small>Respeto por los datos y su finalidad.</small></span></div>
+          <div class="ethic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg><span><b>Calidad</b><small>Trabajo cuidadoso y responsable.</small></span></div>
+          <div class="ethic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg><span><b>Honestidad</b><small>Publicidad sin promesas engañosas.</small></span></div>
+          <div class="ethic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg><span><b>Seguridad</b><small>Prevención de riesgos digitales.</small></span></div>
+          <div class="ethic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg><span><b>Respeto</b><small>Atención digna y sin discriminación.</small></span></div>
+        </div>
+      </div>
+    </div></section>
+
+    <section class="section" id="faq"><div class="container faq-layout">
+      <div class="section-head reveal"><span class="eyebrow">Estamos para orientarte</span><h2 class="section-title">Preguntas <span class="gradient-text">frecuentes.</span></h2><p class="section-copy">Respuestas básicas sobre el catálogo, la compra y el uso de esta demostración.</p><a class="btn btn-outline" style="margin-top:22px" href="#contacto">Tengo otra pregunta</a></div>
+      <div class="faq-list reveal">
+        <details><summary>¿Qué productos ofrece CodeNova?</summary><p>El catálogo académico incluye kits de IoT y robótica, un mini servidor Raspberry Pi y servicios de desarrollo, auditoría, soporte y asesoría tecnológica.</p></details>
+        <details><summary>¿Los precios están en pesos colombianos?</summary><p>Sí. Los valores se muestran en pesos colombianos (COP) y son referencias académicas editables, no una oferta comercial vigente.</p></details>
+        <details><summary>¿Cómo puedo comprar?</summary><p>Agrega productos al carrito, revisa el resumen y completa el formulario de demostración. La confirmación no genera una transacción ni un pedido real.</p></details>
+        <details><summary>¿Qué medios de pago están disponibles?</summary><p>El formulario presenta opciones ilustrativas como PSE, tarjeta y Nequi. No existe integración con entidades financieras ni se solicitan datos de tarjetas.</p></details>
+        <details><summary>¿Cómo se realizan los envíos?</summary><p>En una operación real se deberían informar previamente el costo, la cobertura, el operador y el plazo de entrega. Los valores que muestra esta simulación son referenciales.</p></details>
+        <details><summary>¿Cómo puedo solicitar un servicio?</summary><p>Puedes describir tu necesidad en el formulario de contacto. En una implementación real, el formulario debe conectarse a un canal de recepción configurado.</p></details>
+        <details><summary>¿Cómo se protegen mis datos personales?</summary><p>Este archivo funciona localmente y no transmite el formulario a un servidor. En una tienda real se debe implementar una política de tratamiento, autorización y medidas de seguridad conforme a la normativa aplicable.</p></details>
+        <details><summary>¿Qué sucede si quiero ejercer el derecho de retracto?</summary><p>El derecho de retracto aplica en los supuestos previstos en la ley y tiene excepciones. Consulta la Ley 1480 de 2011 y sus modificaciones, incluida la Ley 2439 de 2024, para revisar condiciones y plazos.</p></details>
+        <details><summary>¿Los servicios de desarrollo tienen garantía?</summary><p>El alcance, soporte posterior, entregables y condiciones deben definirse por escrito en cada acuerdo. Esta demostración no constituye una oferta ni un contrato real.</p></details>
+      </div>
+    </div></section>
+
+    <section class="section contact-section" id="contacto"><div class="container contact-grid">
+      <div class="contact-info reveal"><span class="eyebrow">Hablemos de tu idea</span><h3>¿Tienes un proyecto en mente?</h3><p>Cuéntanos qué quieres construir, mejorar o aprender. En una implementación real, configura aquí tus canales de contacto.</p>
+        <div class="contact-line"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v14H4zM4 7l8 6 8-6"/></svg></span><div><b>Correo de contacto</b><small>Configurar correo institucional</small></div></div>
+        <div class="contact-line"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3h4l2 5-3 2a15 15 0 0 0 5 5l2-3 5 2v4c0 1.1-.9 2-2 2C10 20 4 14 4 5c0-1.1.9-2 2-2Z"/></svg></span><div><b>Atención personalizada</b><small>Canal telefónico por configurar</small></div></div>
+        <div class="contact-line"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><b>Horario de atención</b><small>Definir horario comercial</small></div></div>
+      </div>
+      <form class="contact-form reveal" id="contactForm" novalidate>
+        <div class="form-grid">
+          <div class="form-field"><label for="contactName">Nombre completo *</label><input id="contactName" name="name" autocomplete="name" placeholder="Tu nombre" required></div>
+          <div class="form-field"><label for="contactEmail">Correo electrónico *</label><input id="contactEmail" name="email" type="email" autocomplete="email" placeholder="nombre@correo.com" required></div>
+          <div class="form-field"><label for="contactPhone">Teléfono (opcional)</label><input id="contactPhone" name="phone" inputmode="tel" placeholder="Tu número de contacto"></div>
+          <div class="form-field"><label for="contactType">¿Qué necesitas?</label><select id="contactType" name="type"><option value="">Selecciona una opción</option><option>Desarrollo web</option><option>Aplicación móvil</option><option>IoT y robótica</option><option>Ciberseguridad</option><option>Soporte técnico</option><option>Asesoría académica</option><option>Otro</option></select></div>
+          <div class="form-field full"><label for="contactMessage">Cuéntanos sobre tu proyecto *</label><textarea id="contactMessage" name="message" placeholder="Describe brevemente tu idea o necesidad…" required></textarea></div>
+        </div>
+        <label class="check-row"><input type="checkbox" id="contactConsent" required><span>Autorizo el tratamiento de los datos que proporciono para atender esta consulta. Esta casilla es ilustrativa y debe vincularse a una política real en una implementación productiva.</span></label>
+        <button class="btn" type="submit">Validar mensaje <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button>
+        <p class="form-message" id="contactMessageStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div></section>
+  </main>
+
+  <footer><div class="container">
+    <div class="footer-grid">
+      <div><a class="brand" href="#inicio"><span class="brand-mark"><svg viewBox="0 0 40 40" fill="none"><path d="M20 3 35 11.5v17L20 37 5 28.5v-17L20 3Z" stroke="currentColor" stroke-width="2"/><path d="m15 14-6 6 6 6m10-12 6 6-6 6m-3-15-4 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>CodeNova<small>Technology studio</small></span></a><p class="footer-about">Tecnología, innovación y responsabilidad para impulsar proyectos de Ingeniería de Sistemas.</p></div>
+      <div class="footer-col"><h4>Explora</h4><a href="#nosotros">Nosotros</a><a href="#catalogo">Catálogo</a><a href="#servicios">Servicios</a><a href="#compra">Cómo comprar</a></div>
+      <div class="footer-col"><h4>Información</h4><a href="#legal">Normatividad</a><a href="#etica">Ética profesional</a><a href="#faq">Preguntas frecuentes</a><a href="#contacto">Contacto</a></div>
+      <div class="footer-col"><h4>Fuentes institucionales</h4><a href="https://www.sic.gov.co/" target="_blank" rel="noopener">Superintendencia de Industria y Comercio</a><a href="https://www.dian.gov.co/" target="_blank" rel="noopener">DIAN</a><a href="https://www.funcionpublica.gov.co/" target="_blank" rel="noopener">Función Pública</a></div>
+    </div>
+    <div class="footer-bottom"><span>© <span id="year"></span> CodeNova · Proyecto académico de Ley y Ética para Ingeniería.</span><span class="demo-disclaimer">Sitio de demostración · No procesa pagos ni transmite formularios.</span></div>
+  </div></footer>
+
+  <button class="back-top" id="backTop" aria-label="Volver arriba"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m18 15-6-6-6 6"/></svg></button>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="drawer" id="cartDrawer" aria-label="Carrito de compras" aria-hidden="true">
+    <div class="drawer-head"><h2>Tu carrito <span style="color:var(--muted);font-size:.9rem" id="drawerCount">(0)</span></h2><button class="icon-btn" id="closeCart" aria-label="Cerrar carrito">×</button></div>
+    <div class="drawer-items" id="cartItems"></div>
+    <div class="cart-summary"><div class="summary-line"><span>Subtotal</span><b id="cartSubtotal">$0</b></div><div class="summary-line"><span>Envío estimado</span><b id="cartShipping">$0</b></div><div class="summary-line total"><span>Total de referencia</span><b id="cartTotal">$0</b></div><p class="summary-note">El envío es ilustrativo y solo se calcula para artículos físicos. El valor final, impuestos y condiciones deben confirmarse en una operación real.</p><button class="btn" id="checkoutButton">Continuar con la demostración →</button></div>
+  </aside>
+
+  <div class="modal-wrap" id="productModal" role="dialog" aria-modal="true" aria-labelledby="productModalTitle"><div class="modal"><div class="modal-head"><h2 id="productModalTitle">Detalle del producto</h2><button class="icon-btn" data-close-modal="productModal" aria-label="Cerrar">×</button></div><div class="modal-body" id="productModalBody"></div></div></div>
+  <div class="modal-wrap" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle"><div class="modal"><div class="modal-head"><h2 id="checkoutTitle">Finalizar demostración</h2><button class="icon-btn" data-close-modal="checkoutModal" aria-label="Cerrar">×</button></div><div class="modal-body" id="checkoutBody"></div></div></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    'use strict';
+    // Catálogo de demostración. Precios y condiciones son editables para el proyecto académico.
+    const PRODUCTS = [
+      {id:1,category:'Hardware',type:'physical',name:'Kit IoT Starter ESP32',price:189000,short:'Explora Internet de las cosas con una placa conectada y componentes esenciales.',image:'https://laserwattmeter.com/newtoncreativelabs.com/images/capability-firmware.png',alt:'Placa ESP32 conectada a protoboard y componentes electrónicos',specs:['ESP32 con WiFi y Bluetooth','Sensor de temperatura y humedad','Protoboard y cables de conexión'],description:'Kit de iniciación para experimentar con sensores, conectividad y prototipos de Internet de las cosas. Una base para aprender a recopilar datos y crear automatizaciones.',label:'IoT / Electrónica'},
+      {id:2,category:'Hardware',type:'physical',name:'Mini servidor Raspberry Pi 4',price:420000,short:'Una plataforma compacta para laboratorios, redes y proyectos personales.',image:'https://images.unsplash.com/photo-1631553127988-36343ac5bb0c?auto=format&fit=crop&w=900&q=85',alt:'Computadora de placa única Raspberry Pi sobre superficie oscura',specs:['Modelo de referencia con 4 GB de RAM','MicroSD de 64 GB','Fuente de alimentación y carcasa'],description:'Equipo compacto para prácticas de administración de sistemas, servicios de red, automatización y aprendizaje de infraestructura.',label:'Computación'},
+      {id:3,category:'Hardware',type:'physical',name:'Kit Arduino Robótica',price:235000,short:'Construye prototipos móviles y aprende sobre sensores y control.',image:'https://www.wolfieweb.com/images/arduino_robot_car_main.webp',alt:'Carro robótico con placa Arduino, sensores y ruedas',specs:['Arduino UNO de referencia','Motores y ruedas','Sensores infrarrojos'],description:'Componentes para iniciar proyectos de robótica educativa, control de motores y detección de obstáculos mediante sensores.',label:'Robótica'},
+      {id:4,category:'Desarrollo',type:'digital',name:'Sitio web profesional',price:650000,short:'Una presencia digital responsive para presentar tu marca o proyecto.',image:'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=85',alt:'Portátil con editor de código en una mesa de trabajo',specs:['Hasta cinco secciones informativas','Diseño adaptable a móvil y escritorio','Entrega estimada de diez días, sujeta a alcance'],description:'Servicio de diseño y desarrollo frontend para crear una página web clara, adaptable y alineada con la identidad del proyecto. El alcance se acuerda antes de iniciar.',label:'Desarrollo web'},
+      {id:5,category:'Desarrollo',type:'digital',name:'Prototipo de aplicación móvil',price:980000,short:'Valida la experiencia de tu idea con un prototipo navegable.',image:'https://mettevo.com/_next/image?q=75&url=https%3A%2F%2Fstage.mettevo.com%2Fwp-content%2Fuploads%2F2025%2F03%2F2-Mobile-App-Development.webp&w=1920',alt:'Prototipo de interfaz móvil sobre mesa con diagramas',specs:['Hasta cuatro pantallas principales','Archivos fuente del prototipo','Dos rondas de revisión'],description:'Propuesta de prototipado de interfaz para explorar flujos, estructura y experiencia de usuario antes de invertir en el desarrollo completo de una aplicación.',label:'UX / Aplicaciones'},
+      {id:6,category:'Soporte',type:'digital',name:'Auditoría de seguridad',price:380000,short:'Identifica oportunidades de mejora en la seguridad de un sistema.',image:'https://www.ibm.com/content/adobe-cms/br/pt/new/announcements/drive-ai-at-scale-with-the-power-of-hybrid-it-environment-and-support/jcr%3Acontent/root/leadspace_container/leadspace_article_full_image/image.coreimg.jpeg/1774617747211/adobestock-1785913115.jpeg',alt:'Centro de datos y servidores con iluminación azul',specs:['Revisión inicial del alcance acordado','Informe de hallazgos y recomendaciones','Sesión de explicación de una hora'],description:'Servicio de revisión preliminar, limitado al alcance autorizado por el cliente. No implica pruebas intrusivas ni garantiza la ausencia de vulnerabilidades.',label:'Ciberseguridad'},
+      {id:7,category:'Soporte',type:'digital',name:'Soporte técnico mensual',price:290000,short:'Acompañamiento para resolver incidencias y mantener tus equipos.',image:'https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=900&q=85',alt:'Técnico trabajando con componentes electrónicos',specs:['Hasta ocho horas de soporte de referencia','Tiempo de respuesta estimado de 24 horas hábiles','Reporte mensual de actividades'],description:'Acompañamiento técnico para diagnóstico y mantenimiento. La cobertura, horarios y tiempos de atención deben establecerse en un acuerdo de servicio.',label:'Soporte'},
+      {id:8,category:'Soporte',type:'digital',name:'Asesoría de proyecto de grado',price:210000,short:'Acompañamiento en arquitectura, diseño y organización técnica.',image:'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=900&q=85',alt:'Personas colaborando en la planificación de un proyecto',specs:['Tres sesiones virtuales de referencia','Revisión de diseño o arquitectura','Material de apoyo'],description:'Orientación académica y técnica para estructurar una propuesta de ingeniería. El acompañamiento promueve el aprendizaje y no sustituye el trabajo del estudiante.',label:'Asesoría'}
+    ];
+    const money = value => new Intl.NumberFormat('es-CO',{style:'currency',currency:'COP',maximumFractionDigits:0}).format(value);
+    const $ = id => document.getElementById(id);
+    const escapeHTML = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+    const fallbackImage = 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80';
+    let activeFilter = 'Todos';
+    let cart = readCart();
+    let toastTimer;
+
+    function readCart(){
+      try{
+        const stored = JSON.parse(localStorage.getItem('codenova_cart') || '{}');
+        if(!stored || typeof stored !== 'object' || Array.isArray(stored)) return {};
+        const clean = {};
+        for(const [id, qty] of Object.entries(stored)){
+          const product = PRODUCTS.find(item => item.id === Number(id));
+          const amount = Number(qty);
+          if(product && Number.isInteger(amount) && amount > 0 && amount < 100) clean[id] = amount;
+        }
+        return clean;
+      }catch(error){ return {}; }
+    }
+    function saveCart(){
+      try{ localStorage.setItem('codenova_cart', JSON.stringify(cart)); }
+      catch(error){ /* El carrito sigue funcionando durante la sesión aunque el navegador bloquee localStorage. */ }
+    }
+    function toast(message){
+      const el = $('toast'); el.textContent = message; el.classList.add('show');
+      clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.remove('show'), 2600);
+    }
+    function getCartRows(){
+      return Object.entries(cart).map(([id,qty]) => ({product:PRODUCTS.find(p => p.id === Number(id)),qty})).filter(row => row.product && row.qty > 0);
+    }
+    function cartTotals(){
+      const rows = getCartRows();
+      const subtotal = rows.reduce((sum,row) => sum + row.product.price * row.qty,0);
+      const physicalSubtotal = rows.filter(row => row.product.type === 'physical').reduce((sum,row) => sum + row.product.price * row.qty,0);
+      const shipping = physicalSubtotal === 0 ? 0 : physicalSubtotal >= 300000 ? 0 : 15000;
+      const count = rows.reduce((sum,row) => sum + row.qty,0);
+      return {rows,subtotal,physicalSubtotal,shipping,total:subtotal+shipping,count};
+    }
+    function renderProducts(){
+      const search = $('productSearch').value.trim().toLocaleLowerCase('es');
+      let items = PRODUCTS.filter(product => (activeFilter === 'Todos' || product.category === activeFilter) && (product.name+' '+product.short+' '+product.category+' '+product.label).toLocaleLowerCase('es').includes(search));
+      const sort = $('sortProducts').value;
+      if(sort === 'low') items.sort((a,b) => a.price-b.price);
+      if(sort === 'high') items.sort((a,b) => b.price-a.price);
+      if(sort === 'az') items.sort((a,b) => a.name.localeCompare(b.name,'es'));
+      $('productGrid').innerHTML = items.length ? items.map(product => `
+        <article class="product-card">
+          <div class="product-image"><img src="${escapeHTML(product.image)}" alt="${escapeHTML(product.alt)}" loading="lazy" onerror="this.onerror=null;this.src='${fallbackImage}'"><span class="product-label">${escapeHTML(product.label)}</span></div>
+          <div class="product-content"><span class="product-category">${escapeHTML(product.category)}</span><h3 class="product-title">${escapeHTML(product.name)}</h3><p class="product-desc">${escapeHTML(product.short)}</p>
+            <div class="product-bottom"><span class="price">${money(product.price)}<small class="price-note">Precio de referencia</small></span><span class="product-actions"><button class="details-btn" data-view="${product.id}" aria-label="Ver detalles de ${escapeHTML(product.name)}">Detalles</button><button class="add-btn" data-add="${product.id}" aria-label="Agregar ${escapeHTML(product.name)} al carrito"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14m-7-7h14"/></svg></button></span></div>
+          </div>
+        </article>`).join('') : '<div class="empty-state"><strong>No encontramos resultados.</strong><p>Prueba con otra palabra o cambia el filtro.</p></div>';
+    }
+    function renderCart(){
+      const totals = cartTotals();
+      $('cartCount').textContent = totals.count;
+      $('drawerCount').textContent = `(${totals.count})`;
+      $('cartSubtotal').textContent = money(totals.subtotal);
+      $('cartShipping').textContent = totals.shipping === 0 ? 'Gratis / No aplica' : money(totals.shipping);
+      $('cartTotal').textContent = money(totals.total);
+      if(!totals.rows.length){
+        $('cartItems').innerHTML = `<div class="cart-empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 4h2l2.1 10.2a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 1.9-1.4L22 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg><b>Tu carrito está esperando.</b><p>Agrega un producto o servicio para comenzar.</p><button class="btn btn-small" id="emptyExplore">Explorar catálogo</button></div>`;
+      }else{
+        $('cartItems').innerHTML = totals.rows.map(({product,qty}) => `<div class="cart-row"><img src="${escapeHTML(product.image)}" alt="" onerror="this.onerror=null;this.src='${fallbackImage}'"><div><h4>${escapeHTML(product.name)}</h4><small>${money(product.price)}</small><div class="qty"><button data-qty="${product.id}" data-delta="-1" aria-label="Disminuir cantidad">−</button><span>${qty}</span><button data-qty="${product.id}" data-delta="1" aria-label="Aumentar cantidad">+</button></div></div><button class="remove-item" data-remove="${product.id}" aria-label="Eliminar ${escapeHTML(product.name)}">Eliminar</button></div>`).join('');
+      }
+      $('checkoutButton').disabled = !totals.count;
+      $('checkoutButton').style.opacity = totals.count ? '1' : '.55';
+      saveCart();
+    }
+    function addToCart(id){
+      const product = PRODUCTS.find(item => item.id === Number(id)); if(!product) return;
+      cart[id] = Math.min((cart[id] || 0) + 1,99); renderCart(); toast(`${product.name} agregado al carrito`);
+    }
+    function showProduct(id){
+      const product = PRODUCTS.find(item => item.id === Number(id)); if(!product) return;
+      $('productModalBody').innerHTML = `<div class="product-modal-grid"><img src="${escapeHTML(product.image)}" alt="${escapeHTML(product.alt)}" onerror="this.onerror=null;this.src='${fallbackImage}'"><div><span class="product-category">${escapeHTML(product.category)} · ${escapeHTML(product.label)}</span><h3>${escapeHTML(product.name)}</h3><div class="price">${money(product.price)}<small class="price-note">Precio de referencia en COP</small></div><p style="margin-top:15px">${escapeHTML(product.description)}</p><strong style="font-size:.8rem">Características de referencia</strong><ul class="spec-list">${product.specs.map(spec => `<li>${escapeHTML(spec)}</li>`).join('')}</ul><button class="btn" data-modal-add="${product.id}">Agregar al carrito</button></div></div>`;
+      openModal('productModal');
+    }
+    function openCart(){ $('overlay').classList.add('open'); $('cartDrawer').classList.add('open'); $('cartDrawer').setAttribute('aria-hidden','false'); document.body.classList.add('lock'); }
+    function closeCart(){ $('overlay').classList.remove('open'); $('cartDrawer').classList.remove('open'); $('cartDrawer').setAttribute('aria-hidden','true'); document.body.classList.remove('lock'); }
+    function openModal(id){ $(id).classList.add('open'); document.body.classList.add('lock'); }
+    function closeModal(id){ $(id).classList.remove('open'); if(!$('productModal').classList.contains('open') && !$('checkoutModal').classList.contains('open') && !$('cartDrawer').classList.contains('open')) document.body.classList.remove('lock'); }
+    function startCheckout(){
+      const totals = cartTotals(); if(!totals.count){ toast('Tu carrito está vacío'); return; }
+      const orderSummary = totals.rows.map(({product,qty}) => `<div><span>${escapeHTML(product.name)} × ${qty}</span><b>${money(product.price*qty)}</b></div>`).join('');
+      $('checkoutBody').innerHTML = `<div class="checkout-warning"><strong>Demostración académica:</strong> este formulario no crea un pedido real, no transmite datos a un servidor y no procesa pagos. No ingreses información financiera.</div><div class="checkout-summary"><strong>Resumen de la selección</strong>${orderSummary}<div style="border-top:1px solid var(--line);padding-top:9px;margin-top:9px"><span>Subtotal</span><b>${money(totals.subtotal)}</b></div><div><span>Envío de referencia</span><b>${totals.shipping ? money(totals.shipping) : 'No aplica / Gratis'}</b></div><div><span>Total de referencia</span><b>${money(totals.total)}</b></div></div>
+        <form class="checkout-form" id="checkoutForm" novalidate><div class="form-grid"><div class="form-field"><label for="buyerName">Nombre completo *</label><input id="buyerName" required autocomplete="name" placeholder="Tu nombre"></div><div class="form-field"><label for="buyerEmail">Correo electrónico *</label><input id="buyerEmail" type="email" required autocomplete="email" placeholder="nombre@correo.com"></div><div class="form-field"><label for="buyerPhone">Teléfono *</label><input id="buyerPhone" required inputmode="tel" placeholder="Número de contacto"></div><div class="form-field"><label for="buyerCity">Ciudad *</label><input id="buyerCity" required placeholder="Ciudad de entrega"></div><div class="form-field full"><label for="buyerAddress">Dirección de entrega (si aplica)</label><input id="buyerAddress" placeholder="Dirección para productos físicos"></div><div class="form-field full"><label for="paymentMethod">Medio de pago ilustrativo</label><select id="paymentMethod"><option>PSE (opción demostrativa)</option><option>Tarjeta (opción demostrativa)</option><option>Nequi (opción demostrativa)</option><option>Acuerdo para servicio digital</option></select></div></div><label class="check-row"><input type="checkbox" id="termsAccepted"><span>Declaro que revisé el resumen y las condiciones de esta simulación.</span></label><label class="check-row"><input type="checkbox" id="privacyAccepted"><span>Autorizo el tratamiento de los datos para el propósito indicado en este ejercicio académico.</span></label><p class="form-message" id="checkoutError" role="alert"></p><button class="btn" type="submit">Confirmar demostración · Sin cobro</button></form>`;
+      closeCart(); openModal('checkoutModal');
+    }
+    function validEmail(email){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); }
+
+    // Eventos del catálogo y del carrito
+    $('filters').addEventListener('click', event => {
+      const button = event.target.closest('[data-filter]'); if(!button) return;
+      activeFilter = button.dataset.filter;
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.toggle('active',btn === button));
+      renderProducts();
+    });
+    $('productSearch').addEventListener('input',renderProducts);
+    $('sortProducts').addEventListener('change',renderProducts);
+    $('productGrid').addEventListener('click',event => {
+      const add = event.target.closest('[data-add]'); const view = event.target.closest('[data-view]');
+      if(add) addToCart(add.dataset.add); if(view) showProduct(view.dataset.view);
+    });
+    $('cartItems').addEventListener('click',event => {
+      if(event.target.id === 'emptyExplore'){ closeCart(); document.querySelector('#catalogo').scrollIntoView({behavior:'smooth'}); return; }
+      const qtyButton = event.target.closest('[data-qty]'); const remove = event.target.closest('[data-remove]');
+      if(qtyButton){ const id = qtyButton.dataset.qty; cart[id] = (cart[id] || 0) + Number(qtyButton.dataset.delta); if(cart[id] <= 0) delete cart[id]; renderCart(); }
+      if(remove){ delete cart[remove.dataset.remove]; renderCart(); toast('Producto eliminado del carrito'); }
+    });
+    $('openCart').addEventListener('click',openCart); $('closeCart').addEventListener('click',closeCart); $('overlay').addEventListener('click',closeCart);
+    $('checkoutButton').addEventListener('click',startCheckout);
+    $('productModal').addEventListener('click',event => { if(event.target === $('productModal') || event.target.closest('[data-close-modal]')) closeModal('productModal'); const add = event.target.closest('[data-modal-add]'); if(add){ addToCart(add.dataset.modalAdd); closeModal('productModal'); } });
+    $('checkoutModal').addEventListener('click',event => { if(event.target === $('checkoutModal') || event.target.closest('[data-close-modal]')) closeModal('checkoutModal'); });
+    $('checkoutBody').addEventListener('submit',event => {
+      if(event.target.id !== 'checkoutForm') return; event.preventDefault();
+      const name = $('buyerName').value.trim(); const email = $('buyerEmail').value.trim(); const phone = $('buyerPhone').value.replace(/\D/g,''); const city = $('buyerCity').value.trim();
+      if(!name || !city || phone.length < 7 || !validEmail(email)){ $('checkoutError').textContent = 'Revisa nombre, correo, teléfono y ciudad. Todos son necesarios para esta simulación.'; return; }
+      if(!$('termsAccepted').checked || !$('privacyAccepted').checked){ $('checkoutError').textContent = 'Debes marcar las dos casillas para continuar.'; return; }
+      const orderCode = 'CN-DEMO-' + Math.random().toString(36).slice(2,7).toUpperCase();
+      $('checkoutBody').innerHTML = `<div class="success-panel"><div class="success-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 4 4L19 6"/></svg></div><h3>¡Simulación completada!</h3><p>Se generó la referencia <strong>${orderCode}</strong> para ${escapeHTML(name)}. No se realizó ningún cobro, no se creó un pedido comercial y los datos no fueron enviados a ningún servidor.</p><button class="btn" id="finishCheckout">Volver a CodeNova</button></div>`;
+      cart = {}; renderCart();
+    });
+    $('checkoutBody').addEventListener('click',event => { if(event.target.id === 'finishCheckout') closeModal('checkoutModal'); });
+
+    // Formulario local: valida los campos pero no transmite información.
+    $('contactForm').addEventListener('submit',event => {
+      event.preventDefault();
+      const name = $('contactName').value.trim(); const email = $('contactEmail').value.trim(); const message = $('contactMessage').value.trim();
+      if(!name || !validEmail(email) || !message){ $('contactMessageStatus').textContent = 'Completa nombre, correo válido y mensaje.'; return; }
+      if(!$('contactConsent').checked){ $('contactMessageStatus').textContent = 'Debes marcar la autorización para continuar.'; return; }
+      $('contactMessageStatus').textContent = 'Formulario validado correctamente. Esta demostración no ha enviado ni almacenado tu mensaje.';
+      $('contactForm').reset(); toast('Formulario validado · Sin envío de datos');
+    });
+
+    // Navegación móvil, tema y elementos de interfaz.
+    $('menuToggle').addEventListener('click',() => {
+      const open = $('navLinks').classList.toggle('open'); $('menuToggle').setAttribute('aria-expanded',String(open));
+    });
+    $('navLinks').addEventListener('click',event => { if(event.target.closest('a')){ $('navLinks').classList.remove('open'); $('menuToggle').setAttribute('aria-expanded','false'); } });
+    $('themeToggle').addEventListener('click',() => {
+      const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'; document.documentElement.dataset.theme = next;
+      try{ localStorage.setItem('codenova_theme',next); }catch(error){}
+    });
+    try{ const savedTheme = localStorage.getItem('codenova_theme'); if(savedTheme === 'dark' || savedTheme === 'light') document.documentElement.dataset.theme = savedTheme; }catch(error){}
+    $('backTop').addEventListener('click',() => window.scrollTo({top:0,behavior:'smooth'}));
+    window.addEventListener('scroll',() => {
+      $('header').classList.toggle('scrolled',window.scrollY > 8);
+      $('backTop').classList.toggle('show',window.scrollY > 520);
+    },{passive:true});
+    document.addEventListener('keydown',event => { if(event.key === 'Escape'){ closeCart(); closeModal('productModal'); closeModal('checkoutModal'); $('navLinks').classList.remove('open'); $('menuToggle').setAttribute('aria-expanded','false'); } });
+    $('year').textContent = new Date().getFullYear();
+
+    // Aparición progresiva al desplazarse. Fallback para navegadores sin IntersectionObserver.
+    if('IntersectionObserver' in window){
+      const observer = new IntersectionObserver(entries => entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); observer.unobserve(entry.target); } }),{threshold:.12});
+      document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
+    }else{ document.querySelectorAll('.reveal').forEach(element => element.classList.add('visible')); }
+
+    renderProducts(); renderCart();
+  </script>
+</body>
+</html>
